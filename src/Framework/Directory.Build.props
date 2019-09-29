@@ -6,13 +6,6 @@
     <!-- Shared between targeting pack and runtime build. -->
     <PlatformManifestFileName>PlatformManifest.txt</PlatformManifestFileName>
     <PlatformManifestOutputPath>$(ArtifactsObjDir)$(PlatformManifestFileName)</PlatformManifestOutputPath>
-
-    <!-- Work around issues finding the `tar` command on CI machines. -->
-    <TarCommand>tar</TarCommand>
-    <TarCommand Condition="'$(OS)' == 'Windows_NT'">C:\Windows\System32\tar.exe</TarCommand>
-    <TarCommand Condition="'$(OS)' == 'Windows_NT' AND !Exists('$(TarCommand)')">C:\Program Files\Git\usr\bin\tar.exe</TarCommand>
-    <TarCommand Condition="'$(OS)' == 'Windows_NT' AND !Exists('$(TarCommand)')">C:\Program Files (x86)\Git\usr\bin\tar.exe</TarCommand>
-    <TarCommand Condition="'$(OS)' == 'Windows_NT'">&quot;$(TarCommand)&quot;</TarCommand>
   </PropertyGroup>
 
   <ItemGroup>
